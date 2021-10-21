@@ -1,0 +1,26 @@
+B 3 C o m p i l a t i o n
+B 36 Equation Listing    SOLVE Feasible_NLP Using NLP From line 23
+D 39 c1
+D 44 c2
+D 49 c3
+D 54 o
+B 60 Column Listing      SOLVE Feasible_NLP Using NLP From line 23
+E 63 x1
+E 73 x2
+E 83 x3
+E 91 f
+B 99 Model Statistics    SOLVE Feasible_NLP Using NLP From line 23
+B 113 Solution Report     SOLVE Feasible_NLP Using NLP From line 23
+F 169 c1
+F 170 c2
+F 171 c3
+F 172 o
+G 181 x1
+G 182 x2
+G 183 x3
+G 184 f
+B 198 E x e c u t i o n
+I 200 x1
+I 201 x2
+I 202 x3
+I 203 f
