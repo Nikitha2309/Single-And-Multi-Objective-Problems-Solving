@@ -1,0 +1,18 @@
+B 3 C o m p i l a t i o n
+B 48 Equation Listing    SOLVE Feasible_MINLP Using MINLP From line 35
+D 51 c1
+D 56 c2
+D 61 c3
+D 66 o
+B 72 Column Listing      SOLVE Feasible_MINLP Using MINLP From line 35
+E 75 x1
+E 85 x2
+E 95 x3
+E 104 f
+B 112 Model Statistics    SOLVE Feasible_MINLP Using MINLP From line 35
+B 126 Solution Report     SOLVE Feasible_MINLP Using MINLP From line 35
+B 153 E x e c u t i o n
+I 155 x1
+I 156 x2
+I 157 x3
+I 158 f
