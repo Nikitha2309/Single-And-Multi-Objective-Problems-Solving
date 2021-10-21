@@ -1,0 +1,212 @@
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:21 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  Variables
+   2           x1      Decision Variable 1
+   3           x2      Decision Variable 2
+   4           x3      Decision Variable 3
+   5           f       Objective Function;
+   6   
+   7  Integer Variable
+   8           x3      Decision Variable 3;
+   9   
+  10  Nonnegative Variables
+  11           x1      Decision Variable 1
+  12           x2      Decision Variable 2;
+  13   
+  14  Equations
+  15           c1      Constraint 1
+  16           c2      Constraint 2
+  17           c3      Constraint 3
+  18           o       Objective Function definition;
+  19   
+  20  c1..     x1 + x2 + x3 =g= 0;
+  21  c2..     x1 + x2 =e= 5;
+  22  c3..     x1 - 2*x2 =g= 0;
+  23  o..      f =e= 5*x1 - x2 + x3;
+  24   
+  25  * Bounding Decision Variables
+  26  x3.l = -10;
+  27  x3.up = 10;
+  28   
+  29  Model Feasible_MILP /all/;
+  30   
+  31  Solve Feasible_MILP using MIP minimizing f;
+  32   
+  33  display x1.l, x2.l, x3.l, f.l;
+
+
+COMPILATION TIME     =        0.000 SECONDS      2 MB  36.2.0 r433180e WEX-WEI
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:21 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE Feasible_MILP Using MIP From line 31
+
+
+---- c1  =G=  Constraint 1
+
+c1..  x1 + x2 + x3 =G= 0 ; (LHS = 0)
+     
+
+---- c2  =E=  Constraint 2
+
+c2..  x1 + x2 =E= 5 ; (LHS = 0, INFES = 5 ****)
+     
+
+---- c3  =G=  Constraint 3
+
+c3..  x1 - 2*x2 =G= 0 ; (LHS = 0)
+     
+
+---- o  =E=  Objective Function definition
+
+o..  - 5*x1 + x2 - x3 + f =E= 0 ; (LHS = 0)
+     
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:21 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE Feasible_MILP Using MIP From line 31
+
+
+---- x1  Decision Variable 1
+
+x1
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        1       c1
+        1       c2
+        1       c3
+       -5       o
+
+
+---- x2  Decision Variable 2
+
+x2
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        1       c1
+        1       c2
+       -2       c3
+        1       o
+
+
+---- x3  Decision Variable 3
+
+x3
+                (.LO, .L, .UP, .M = 0, 0, 10, 0)
+        1       c1
+       -1       o
+      -10       (OLD LEVEL ****)
+
+
+---- f  Objective Function
+
+f
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       o
+
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:21 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE Feasible_MILP Using MIP From line 31
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           4     SINGLE EQUATIONS            4
+BLOCKS OF VARIABLES           4     SINGLE VARIABLES            4  1 projected
+NON ZERO ELEMENTS            11     DISCRETE VARIABLES          1
+
+
+GENERATION TIME      =        0.000 SECONDS      3 MB  36.2.0 r433180e WEX-WEI
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:21 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE Feasible_MILP Using MIP From line 31
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   Feasible_MILP       OBJECTIVE  f
+     TYPE    MIP                 DIRECTION  MINIMIZE
+     SOLVER  CPLEX               FROM LINE  31
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+**** OBJECTIVE VALUE               15.0000
+
+ RESOURCE USAGE, LIMIT          0.031 10000000000.000
+ ITERATION COUNT, LIMIT         0    2147483647
+--- *** This solver runs with a demo license. No commercial use.
+--- GMO setup time: 0.00s
+--- GMO memory 0.50 Mb (peak 0.50 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 20.1.0.1 link memory 0.00 Mb (peak 0.00 Mb)
+--- Starting Cplex
+
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.02sec (det. 0.00 ticks)
+
+--- Fixing integer variables and solving final LP...
+
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.02sec (det. 0.00 ticks)
+
+
+Proven optimal solution
+MIP Solution:           15.000000    (0 iterations, 0 nodes)
+Final Solve:            15.000000    (0 iterations)
+
+Best possible:          15.000000
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU c1                  .             5.0000        +INF             .          
+---- EQU c2                 5.0000         5.0000         5.0000         3.0000      
+---- EQU c3                  .              .            +INF            2.0000      
+---- EQU o                   .              .              .             1.0000      
+
+  c1  Constraint 1
+  c2  Constraint 2
+  c3  Constraint 3
+  o  Objective Function definition
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR x1                  .             3.3333        +INF             .          
+---- VAR x2                  .             1.6667        +INF             .          
+---- VAR x3                  .              .            10.0000         1.0000      
+---- VAR f                 -INF           15.0000        +INF             .          
+
+  x1  Decision Variable 1
+  x2  Decision Variable 2
+  x3  Decision Variable 3
+  f  Objective Function
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:21 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----     33 VARIABLE x1.L                  =        3.333  Decision Variable 1
+            VARIABLE x2.L                  =        1.667  Decision Variable 2
+            VARIABLE x3.L                  =        0.000  Decision Variable 3
+            VARIABLE f.L                   =       15.000  Objective Function
+
+
+EXECUTION TIME       =        0.157 SECONDS      3 MB  36.2.0 r433180e WEX-WEI
+
+
+USER: GAMS Demo license for Nikitha Reddy Metta      G210913|0002CO-GEN
+      Indian Institute of Technology Guwahati, India           DL048129
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\USER\OneDrive\Documents\GAMS\Studio\workspace\Feasible_MILP.gms
+Output     C:\Users\USER\OneDrive\Documents\GAMS\Studio\workspace\Feasible_MILP.lst
