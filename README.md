@@ -14,3 +14,17 @@ This repository contains examples of solving Single Objective Problems &amp; Mul
      - Mixed Integer Non Linear Programming Problem
          - [Feasible Mixed Integer Non Linear Programming Problem](https://github.com/Nikitha2309/Single-Multi-Objective-Problems-Solving/tree/main/Single%20Objective/MINLP/Feasible)
          - [Infeasible Mixed Integer Non Linear Programming Problem](https://github.com/Nikitha2309/Single-Multi-Objective-Problems-Solving/tree/main/Single%20Objective/MINLP/InFeasible)
+         
+  * Multi Objective Optimisation 
+    - Linear Programming Problem
+         - [Feasible Linear Programming Problem](https://github.com/Nikitha2309/Single-Multi-Objective-Problems-Solving/tree/main/Multi%20Objective/LP/Feasible)
+         - [Infeasible Linear Programming Problem](https://github.com/Nikitha2309/Single-Multi-Objective-Problems-Solving/tree/main/Multi%20Objective/LP/InFeasible)
+     - Non Linear Programming Problem
+         - [Feasible Non Linear Programming Problem](https://github.com/Nikitha2309/Single-Multi-Objective-Problems-Solving/tree/main/Multi%20Objective/NLP/Feasible)
+         - [Infeasible Non Linear Programming Problem](https://github.com/Nikitha2309/Single-Multi-Objective-Problems-Solving/tree/main/Multi%20Objective/NLP/InFeasible)
+     - Mixed Integer Linear Programming Problem
+         - [Feasible Mixed Integer Linear Programming Problem](https://github.com/Nikitha2309/Single-Multi-Objective-Problems-Solving/tree/main/Multi%20Objective/MILP/Feasible)
+         - [Infeasible Mixed Integer Linear Programming Problem](https://github.com/Nikitha2309/Single-Multi-Objective-Problems-Solving/tree/main/Multi%20Objective/MILP/InFeasible)
+     - Mixed Integer Non Linear Programming Problem
+         - [Feasible Mixed Integer Non Linear Programming Problem](https://github.com/Nikitha2309/Single-Multi-Objective-Problems-Solving/tree/main/Multi%20Objective/MINLP/Feasible)
+         - [Infeasible Mixed Integer Non Linear Programming Problem](https://github.com/Nikitha2309/Single-Multi-Objective-Problems-Solving/tree/main/Multi%20Objective/MINLP/InFeasible)
