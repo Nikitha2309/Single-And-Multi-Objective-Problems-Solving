@@ -1,0 +1,412 @@
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:09 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  Variables
+   2           x1      Decision Variable 1
+   3           x2      Decision Variable 2
+   4           x3      Decision Variable 3
+   5           f       Objective Function;
+   6   
+   7  Integer Variable
+   8           x3      Decision Variable 3;
+   9   
+  10  Nonnegative Variables
+  11           x1      Decision Variable 1
+  12           x2      Decision Variable 2;
+  13   
+  14  Equations
+  15           c1      Constraint 1
+  16           c2      Constraint 2
+  17           c3      Constraint 3
+  18           c4      Constraint 4
+  19           o       Objective Function definition;
+  20   
+  21  c1..     x1 + x2 -x3 =g= 0;
+  22  c2..     x1 + x2 =e= 5;
+  23  c3..     x1 - 2*x2 =g= 0;
+  24  c4..     x1*x2 =l= 0;
+  25  o..      f =e= sqr(x1) - 2/x2 + exp(x3);
+  26   
+  27  * Bounding Decision Variables
+  28  x2.l = 1;
+  29  x3.l = -10;
+  30  x3.up = 10;
+  31   
+  32  Model InFeasible_MINLP /all/;
+  33   
+  34  Solve InFeasible_MINLP using MINLP minimizing f;
+  35   
+  36  display x1.l, x2.l, x3.l, f.l;
+
+
+COMPILATION TIME     =        0.000 SECONDS      2 MB  36.2.0 r433180e WEX-WEI
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:09 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE InFeasible_MINLP Using MINLP From line 34
+
+
+---- c1  =G=  Constraint 1
+
+c1..  x1 + x2 - x3 =G= 0 ; (LHS = 1)
+     
+
+---- c2  =E=  Constraint 2
+
+c2..  x1 + x2 =E= 5 ; (LHS = 1, INFES = 4 ****)
+     
+
+---- c3  =G=  Constraint 3
+
+c3..  x1 - 2*x2 =G= 0 ; (LHS = -2, INFES = 2 ****)
+     
+
+---- c4  =L=  Constraint 4
+
+c4..  (1)*x1 + (0)*x2 =L= 0 ; (LHS = 0)
+     
+
+---- o  =E=  Objective Function definition
+
+o..  (0)*x1 - (2)*x2 - (1)*x3 + f =E= 0 ; (LHS = 1, INFES = 1 ****)
+     
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:09 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE InFeasible_MINLP Using MINLP From line 34
+
+
+---- x1  Decision Variable 1
+
+x1
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+        1       c1
+        1       c2
+        1       c3
+       (1)      c4
+       (0)      o
+
+
+---- x2  Decision Variable 2
+
+x2
+                (.LO, .L, .UP, .M = 0, 1, +INF, 0)
+        1       c1
+        1       c2
+       -2       c3
+       (0)      c4
+      (-2)      o
+
+
+---- x3  Decision Variable 3
+
+x3
+                (.LO, .L, .UP, .M = 0, 0, 10, 0)
+       -1       c1
+      (-1)      o
+      -10       (OLD LEVEL ****)
+
+
+---- f  Objective Function
+
+f
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       o
+
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:09 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE InFeasible_MINLP Using MINLP From line 34
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           5     SINGLE EQUATIONS            5
+BLOCKS OF VARIABLES           4     SINGLE VARIABLES            4  1 projected
+NON ZERO ELEMENTS            13     NON LINEAR N-Z              5
+CODE LENGTH                  17     CONSTANT POOL              16     DISCRETE VARIABLES          1
+
+
+GENERATION TIME      =        0.015 SECONDS      3 MB  36.2.0 r433180e WEX-WEI
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:09 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE InFeasible_MINLP Using MINLP From line 34
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   InFeasible_MINLP    OBJECTIVE  f
+     TYPE    MINLP               DIRECTION  MINIMIZE
+     SOLVER  DICOPT              FROM LINE  34
+
+**** SOLVER STATUS     5 Evaluation Interrupt
+**** MODEL STATUS      9 Intermediate Non-Integer
+**** OBJECTIVE VALUE                0.0000
+
+ RESOURCE USAGE, LIMIT          0.000 10000000000.000
+ ITERATION COUNT, LIMIT         3    2147483647
+ EVALUATION ERRORS              2             0
+-------------------------------------------------------------------------------
+Dicopt 2         36.2.0 r433180e Released Sep  3, 2021 WEI x86 64bit/MS Window
+-------------------------------------------------------------------------------
+by Aldo Vecchietti, Director del Instituto INGAR,
+   CONICET, UTN, Santa Fe, Argentina
+by Ignacio E. Grossmann, Chemical Engineering Faculty,
+   Carnegie Mellon University, Pittsburgh, PA, USA
+-------------------------------------------------------------------------------
+*** This solver runs with a demo license. No commercial use.
+--- *** This solver runs with a demo license. No commercial use.
+ 
+ 
+    C O N O P T 3   version 3.17K
+    Copyright (C)   ARKI Consulting and Development A/S
+                    Bagsvaerdvej 246 A
+                    DK-2880 Bagsvaerd, Denmark
+ 
+ 
+    The model has 4 variables and 5 constraints
+    with 13 Jacobian elements, 5 of which are nonlinear.
+    The Hessian of the Lagrangian has 3 elements on the diagonal,
+    1 elements below the diagonal, and 3 nonlinear variables.
+ 
+ ** Warning **  The value of LFITER is out of range.
+                LFITER is decreased from 2147483647 to 1000000000.
+ 
+                   Pre-triangular equations:   0
+                   Post-triangular equations:  1
+ 
+ 
+ ** Domain error(s) in nonlinear functions.
+    Check bounds on variables.
+ 
+ 
+ CONOPT time Total                            0.001 seconds
+   of which: Function evaluations             0.000 =  0.0%
+             1st Derivative evaluations       0.000 =  0.0%
+ 
+--- DICOPT: Stopped prematurely: hitting limit DOMLIM
+
+      During execution of one of the NLP subproblems or in DICOPT
+      during a linearization the Domain Error Limit was hit.
+      Reset the GAMS DOMLIM option, or provide better bounds
+      so that the non-linear functions and their derivatives
+      can be evaluated.
+
+      CONOPT may also raise this error when the derivatives
+      are becoming too large. CONOPT will send a message
+      to the screen or logfile. Another indication is that
+      the number of evaluation errors is less than the limit.
+      If in doubt use OPTION SYSOUT=ON; which will echo
+      CONOPT messages to the listing file.
+
+--- DICOPT: No integer solution
+
+      No integer solution was found. The relaxed NLP solution
+      will be reported.
+
+
+**** ERRORS/WARNINGS IN EQUATION o
+     3 error(s): div: FUNC SINGULAR: x/y, |y| <= 1e-150 (RETURNED 1E299)
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU c1                  .              .            +INF            EPS         
+---- EQU c2                 5.0000          .             5.0000         EPS    INFES
+---- EQU c3                  .              .            +INF            EPS         
+---- EQU c4                -INF             .              .             EPS         
+---- EQU o                   .       1.00000E+299          .             EPS    INFES
+
+  c1  Constraint 1
+  c2  Constraint 2
+  c3  Constraint 3
+  c4  Constraint 4
+  o  Objective Function definition
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR x1                  .              .            +INF            EPS         
+---- VAR x2                  .              .            +INF            EPS         
+---- VAR x3                  .              .            10.0000         EPS         
+---- VAR f                 -INF             .            +INF            EPS         
+
+  x1  Decision Variable 1
+  x2  Decision Variable 2
+  x3  Decision Variable 3
+  f  Objective Function
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             2 INFEASIBLE (INFES)
+                    SUM    1.00000E+299
+                    MAX    1.00000E+299
+                    MEAN   5.00000E+298
+                             0  UNBOUNDED
+                             1     ERRORS ( ****)
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:09 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE InFeasible_MINLP Using MINLP From line 34
+
+
+**** SOLVER STATUS FILE LISTED BELOW
+=1
+-------------------------------------------------------------------------------
+=CDicopt 2         36.2.0 r433180e Released Sep  3, 2021 WEI x86 64bit/MS Window
+-------------------------------------------------------------------------------
+by Aldo Vecchietti, Director del Instituto INGAR,
+   CONICET, UTN, Santa Fe, Argentina
+by Ignacio E. Grossmann, Chemical Engineering Faculty,
+   Carnegie Mellon University, Pittsburgh, PA, USA
+-------------------------------------------------------------------------------
+=C*** This solver runs with a demo license. No commercial use.
+=1
+=2
+=0CONOPT 3         36.2.0 r433180e Released Sep 03, 2021 WEI x86 64bit/MS Window
+=1
+--- *** This solver runs with a demo license. No commercial use.
+=2
+=1
+ 
+ 
+    C O N O P T 3   version 3.17K
+    Copyright (C)   ARKI Consulting and Development A/S
+                    Bagsvaerdvej 246 A
+                    DK-2880 Bagsvaerd, Denmark
+ 
+=2
+    1  INPUT                                                                  (DEFAULT)
+    2  BRANCH * MAJERR MINERR JACERR                                          (DEFAULT)
+    3  OPTIMIZE                                                               (DEFAULT)
+    4  BRANCH * * * * * * MAJERR                                              (DEFAULT)
+    5  OUTPUT                                                                 (DEFAULT)
+    6  EXIT                                                                   (DEFAULT)
+    7  MAJERR MESSAGE MAJOR ERROR - TERMINATE                                 (DEFAULT)
+    8  EXIT                                                                   (DEFAULT)
+    9  MINERR MESSAGE MINOR ERROR - TERMINATE                                 (DEFAULT)
+   10  EXIT                                                                   (DEFAULT)
+   11  JACERR MESSAGE FUNCTION OR DERIVATIVE ERROR                            (DEFAULT)
+   12  OUTPUT                                                                 (DEFAULT)
+   13  EXIT                                                                   (DEFAULT)
+ 
+  ***  Line    1  INPUT
+ 
+  ***  Line    0  SET       LSAZRW   = TRUE
+ 
+  ***  Line    0  SET       LFEERR   =           0
+ 
+  ***  Line    0  SET       LFITER   =  2147483647
+ 
+  ***  Line    0  SET       RVTIME   =     1.0000000000E+10
+=1
+ 
+    The model has 4 variables and 5 constraints
+    with 13 Jacobian elements, 5 of which are nonlinear.
+    The Hessian of the Lagrangian has 3 elements on the diagonal,
+    1 elements below the diagonal, and 3 nonlinear variables.
+=2
+=1
+ 
+ ** Warning **  The value of LFITER is out of range.
+                LFITER is decreased from 2147483647 to 1000000000.
+=2
+ 
+Search for a first feasible solution
+ 
+ 
+   Iter Phase Ninf   Infeasibility   RGmax    NSB   Step InItr MX OK
+      0   0        7.0000000000E+00 (Input point)
+=1
+ 
+                   Pre-triangular equations:   0
+                   Post-triangular equations:  1
+ 
+=2
+      1   0        6.0000000000E+00 (After pre-processing)
+      2   0        2.0000000000E+00 (After scaling)
+      3   0     1  1.2500000000E+00               1.0E+00      F  T
+=5 5 div: FUNC SINGULAR: x/y, |y| <= 1e-150 (RETURNED 1E299)
+=1
+ 
+ ** Domain error(s) in nonlinear functions.
+    Check bounds on variables.
+ 
+=2
+=5 5 div: FUNC SINGULAR: x/y, |y| <= 1e-150 (RETURNED 1E299)
+ 
+  ***  Line    4  BRANCH with Lbranch =  6
+ 
+  ***  Line    5  OUTPUT
+=5 5 div: FUNC SINGULAR: x/y, |y| <= 1e-150 (RETURNED 1E299)
+ 
+  ***  Line    6  EXIT
+=1
+ 
+ CONOPT time Total                            0.001 seconds
+   of which: Function evaluations             0.000 =  0.0%
+             1st Derivative evaluations       0.000 =  0.0%
+ 
+=2
+ 
+ Work length =       2994 double words  =    0.02 Mbytes
+    Estimate =       2994 double words  =    0.02 Mbytes
+    Max used =       1200 double words  =    0.01 Mbytes
+ 
+ Timing for Function Evaluations:
+ 
+ Statistics for FDEval-Fnc Calls:         5. Time:      0.000 T/C:    0.0000E+00
+ Statistics for FDEval-Drv Calls:         2. Time:      0.000 T/C:    0.0000E+00
+ Statistics for 2DDirLag   Calls:         0. Time:      0.000 T/C:    0.0000E+00
+ Statistics for 2DLagr     Calls:         0. Time:      0.000 T/C:    0.0000E+00
+ 
+=1
+=C--- DICOPT: Stopped prematurely: hitting limit DOMLIM
+=C
+=C      During execution of one of the NLP subproblems or in DICOPT
+=C      during a linearization the Domain Error Limit was hit.
+=C      Reset the GAMS DOMLIM option, or provide better bounds
+=C      so that the non-linear functions and their derivatives
+=C      can be evaluated.
+=C
+=C      CONOPT may also raise this error when the derivatives
+=C      are becoming too large. CONOPT will send a message
+=C      to the screen or logfile. Another indication is that
+=C      the number of evaluation errors is less than the limit.
+=C      If in doubt use OPTION SYSOUT=ON; which will echo
+=C      CONOPT messages to the listing file.
+=C
+=C--- DICOPT: No integer solution
+=C
+=C      No integer solution was found. The relaxed NLP solution
+=C      will be reported.
+=C
+=2
+ DICOPT Log File
+ ------------------------------------------------------------------
+ Major Major     Objective    CPU time  Itera- Evaluation Solver
+ Step  Iter       Function     (Sec)    tions   Errors
+  NLP    1        *DomLim*      0.00        3      2      conopt
+ ------------------------------------------------------------------
+   Total solver times :  NLP =     0.00   MIP =     0.00
+ ------------------------------------------------------------------
+=4
+**** SOLVER STATUS FILE LISTED ABOVE
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:09 Page 7
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----     36 VARIABLE x1.L                  =        0.000  Decision Variable 1
+            VARIABLE x2.L                  =        0.000  Decision Variable 2
+            VARIABLE x3.L                  =        0.000  Decision Variable 3
+            VARIABLE f.L                   =        0.000  Objective Function
+
+
+EXECUTION TIME       =        0.500 SECONDS      3 MB  36.2.0 r433180e WEX-WEI
+
+
+USER: GAMS Demo license for Nikitha Reddy Metta      G210913|0002CO-GEN
+      Indian Institute of Technology Guwahati, India           DL048129
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\USER\OneDrive\Documents\GAMS\Studio\workspace\InFeasible_MINLP.gms
+Output     C:\Users\USER\OneDrive\Documents\GAMS\Studio\workspace\InFeasible_MINLP.lst

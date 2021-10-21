@@ -1,0 +1,28 @@
+B 3 C o m p i l a t i o n
+B 47 Equation Listing    SOLVE InFeasible_MINLP Using MINLP From line 34
+D 50 c1
+D 55 c2
+D 60 c3
+D 65 c4
+D 70 o
+B 76 Column Listing      SOLVE InFeasible_MINLP Using MINLP From line 34
+E 79 x1
+E 90 x2
+E 101 x3
+E 110 f
+B 118 Model Statistics    SOLVE InFeasible_MINLP Using MINLP From line 34
+B 132 Solution Report     SOLVE InFeasible_MINLP Using MINLP From line 34
+F 212 c1
+F 213 c2
+F 214 c3
+F 215 c4
+F 216 o
+G 226 x1
+G 227 x2
+G 228 x3
+G 229 f
+B 393 E x e c u t i o n
+I 395 x1
+I 396 x2
+I 397 x3
+I 398 f
