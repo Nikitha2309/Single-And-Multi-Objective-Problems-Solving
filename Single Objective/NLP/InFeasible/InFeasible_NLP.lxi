@@ -1,0 +1,28 @@
+B 3 C o m p i l a t i o n
+B 38 Equation Listing    SOLVE InFeasible_NLP Using NLP From line 25
+D 41 c1
+D 46 c2
+D 51 c3
+D 56 c4
+D 61 o
+B 67 Column Listing      SOLVE InFeasible_NLP Using NLP From line 25
+E 70 x1
+E 81 x2
+E 92 x3
+E 100 f
+B 108 Model Statistics    SOLVE InFeasible_NLP Using NLP From line 25
+B 122 Solution Report     SOLVE InFeasible_NLP Using NLP From line 25
+F 173 c1
+F 174 c2
+F 175 c3
+F 176 c4
+F 177 o
+G 187 x1
+G 188 x2
+G 189 x3
+G 190 f
+B 207 E x e c u t i o n
+I 209 x1
+I 210 x2
+I 211 x3
+I 212 f

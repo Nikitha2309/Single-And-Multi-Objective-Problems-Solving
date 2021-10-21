@@ -1,0 +1,226 @@
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:24 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  Variables
+   2           x1      Decision Variable 1
+   3           x2      Decision Variable 2
+   4           x3      Decision Variable 3
+   5           f       Objective Function;
+   6   
+   7  Equations
+   8           c1      Constraint 1
+   9           c2      Constraint 2
+  10           c3      Constraint 3
+  11           c4      Constraint 4
+  12           o       Objective Function definition;
+  13   
+  14  c1..     x1 + x2 -x3 =g= 0;
+  15  c2..     x1 + x2 =e= 5;
+  16  c3..     x1 - 2*x2 =g= 0;
+  17  c4..     x1*x2 =l= 0;
+  18  o..      f =e= sqr(x1) - 2/x2 + exp(x3);
+  19   
+  20  * Bounding x2, To avoid Zero Division Error in GAMS
+  21  x2.l = 1;
+  22   
+  23  Model InFeasible_NLP /all/;
+  24   
+  25  Solve InFeasible_NLP using NLP maximizing f;
+  26   
+  27  display x1.l, x2.l, x3.l, f.l;
+
+
+COMPILATION TIME     =        0.000 SECONDS      2 MB  36.2.0 r433180e WEX-WEI
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:24 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE InFeasible_NLP Using NLP From line 25
+
+
+---- c1  =G=  Constraint 1
+
+c1..  x1 + x2 - x3 =G= 0 ; (LHS = 1)
+     
+
+---- c2  =E=  Constraint 2
+
+c2..  x1 + x2 =E= 5 ; (LHS = 1, INFES = 4 ****)
+     
+
+---- c3  =G=  Constraint 3
+
+c3..  x1 - 2*x2 =G= 0 ; (LHS = -2, INFES = 2 ****)
+     
+
+---- c4  =L=  Constraint 4
+
+c4..  (1)*x1 + (0)*x2 =L= 0 ; (LHS = 0)
+     
+
+---- o  =E=  Objective Function definition
+
+o..  (0)*x1 - (2)*x2 - (1)*x3 + f =E= 0 ; (LHS = 1, INFES = 1 ****)
+     
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:24 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE InFeasible_NLP Using NLP From line 25
+
+
+---- x1  Decision Variable 1
+
+x1
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       c1
+        1       c2
+        1       c3
+       (1)      c4
+       (0)      o
+
+
+---- x2  Decision Variable 2
+
+x2
+                (.LO, .L, .UP, .M = -INF, 1, +INF, 0)
+        1       c1
+        1       c2
+       -2       c3
+       (0)      c4
+      (-2)      o
+
+
+---- x3  Decision Variable 3
+
+x3
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+       -1       c1
+      (-1)      o
+
+
+---- f  Objective Function
+
+f
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       o
+
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:24 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE InFeasible_NLP Using NLP From line 25
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           5     SINGLE EQUATIONS            5
+BLOCKS OF VARIABLES           4     SINGLE VARIABLES            4
+NON ZERO ELEMENTS            13     NON LINEAR N-Z              5
+CODE LENGTH                  17     CONSTANT POOL              16
+
+
+GENERATION TIME      =        0.000 SECONDS      3 MB  36.2.0 r433180e WEX-WEI
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:24 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE InFeasible_NLP Using NLP From line 25
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   InFeasible_NLP      OBJECTIVE  f
+     TYPE    NLP                 DIRECTION  MAXIMIZE
+     SOLVER  CONOPT              FROM LINE  25
+
+**** SOLVER STATUS     5 Evaluation Interrupt
+**** MODEL STATUS      6 Intermediate Infeasible
+**** OBJECTIVE VALUE                0.0000
+
+ RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ ITERATION COUNT, LIMIT         3    2147483647
+ EVALUATION ERRORS              2             0
+--- *** This solver runs with a demo license. No commercial use.
+ 
+ 
+    C O N O P T 3   version 3.17K
+    Copyright (C)   ARKI Consulting and Development A/S
+                    Bagsvaerdvej 246 A
+                    DK-2880 Bagsvaerd, Denmark
+ 
+ 
+    The model has 4 variables and 5 constraints
+    with 13 Jacobian elements, 5 of which are nonlinear.
+    The Hessian of the Lagrangian has 3 elements on the diagonal,
+    1 elements below the diagonal, and 3 nonlinear variables.
+ 
+ ** Warning **  The value of LFITER is out of range.
+                LFITER is decreased from 2147483647 to 1000000000.
+ 
+                   Pre-triangular equations:   0
+                   Post-triangular equations:  2
+ 
+ 
+ ** Domain error(s) in nonlinear functions.
+    Check bounds on variables.
+ 
+ 
+ CONOPT time Total                            0.001 seconds
+   of which: Function evaluations             0.000 =  0.0%
+             1st Derivative evaluations       0.000 =  0.0%
+ 
+
+**** ERRORS/WARNINGS IN EQUATION o
+     3 error(s): div: FUNC SINGULAR: x/y, |y| <= 1e-150 (RETURNED 1E299)
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU c1                  .             1.0000        +INF            EPS         
+---- EQU c2                 5.0000          .             5.0000         EPS    INFES
+---- EQU c3                  .              .            +INF            EPS         
+---- EQU c4                -INF             .              .             EPS         
+---- EQU o                   .       1.00000E+299          .             EPS    INFES
+
+  c1  Constraint 1
+  c2  Constraint 2
+  c3  Constraint 3
+  c4  Constraint 4
+  o  Objective Function definition
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR x1                -INF             .            +INF            EPS         
+---- VAR x2                -INF             .            +INF            EPS         
+---- VAR x3                -INF           -1.0000        +INF            EPS         
+---- VAR f                 -INF             .            +INF            EPS         
+
+  x1  Decision Variable 1
+  x2  Decision Variable 2
+  x3  Decision Variable 3
+  f  Objective Function
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             2 INFEASIBLE (INFES)
+                    SUM    1.00000E+299
+                    MAX    1.00000E+299
+                    MEAN   5.00000E+298
+                             0  UNBOUNDED
+                             1     ERRORS ( ****)
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:24 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----     27 VARIABLE x1.L                  =        0.000  Decision Variable 1
+            VARIABLE x2.L                  =        0.000  Decision Variable 2
+            VARIABLE x3.L                  =       -1.000  Decision Variable 3
+            VARIABLE f.L                   =        0.000  Objective Function
+
+
+EXECUTION TIME       =        0.062 SECONDS      3 MB  36.2.0 r433180e WEX-WEI
+
+
+USER: GAMS Demo license for Nikitha Reddy Metta      G210913|0002CO-GEN
+      Indian Institute of Technology Guwahati, India           DL048129
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\USER\OneDrive\Documents\GAMS\Studio\workspace\InFeasible_NLP.gms
+Output     C:\Users\USER\OneDrive\Documents\GAMS\Studio\workspace\InFeasible_NLP.lst
