@@ -15,7 +15,7 @@ This repository contains examples of solving Single Objective Problems &amp; Mul
          - [Feasible Mixed Integer Non Linear Programming Problem](https://github.com/Nikitha2309/Single-Multi-Objective-Problems-Solving/tree/main/Single%20Objective/MINLP/Feasible)
          - [Infeasible Mixed Integer Non Linear Programming Problem](https://github.com/Nikitha2309/Single-Multi-Objective-Problems-Solving/tree/main/Single%20Objective/MINLP/InFeasible)
          
-  * Multi Objective Optimisation 
+ * Multi Objective Optimisation 
     - Linear Programming Problem
          - [Feasible Linear Programming Problem](https://github.com/Nikitha2309/Single-Multi-Objective-Problems-Solving/tree/main/Multi%20Objective/LP/Feasible)
          - [Infeasible Linear Programming Problem](https://github.com/Nikitha2309/Single-Multi-Objective-Problems-Solving/tree/main/Multi%20Objective/LP/InFeasible)
