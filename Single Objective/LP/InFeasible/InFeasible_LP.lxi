@@ -1,0 +1,30 @@
+B 3 C o m p i l a t i o n
+B 37 Equation Listing    SOLVE InFeasible_LP Using LP From line 24
+D 40 c1
+D 45 c2
+D 50 c3
+D 55 c4
+D 60 c5
+D 65 o
+B 71 Column Listing      SOLVE InFeasible_LP Using LP From line 24
+E 74 x1
+E 85 x2
+E 96 x3
+E 106 f
+B 114 Model Statistics    SOLVE InFeasible_LP Using LP From line 24
+B 127 Solution Report     SOLVE InFeasible_LP Using LP From line 24
+F 165 c1
+F 166 c2
+F 167 c3
+F 168 c4
+F 169 c5
+F 170 o
+G 181 x1
+G 182 x2
+G 183 x3
+G 184 f
+B 200 E x e c u t i o n
+I 202 x1
+I 203 x2
+I 204 x3
+I 205 f
