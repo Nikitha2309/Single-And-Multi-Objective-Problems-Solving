@@ -1,0 +1,189 @@
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:34 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  Variables
+   2           x1      Decision Variable 1
+   3           x2      Decision Variable 2
+   4           x3      Decision Variable 3
+   5           f       Objective Function;
+   6   
+   7  Equations
+   8           c1      Constraint 1
+   9           c2      Constraint 2
+  10           c3      Constraint 3
+  11           o       Objective Function definition;
+  12   
+  13  c1..     x1 + x2 + x3 =g= 0;
+  14  c2..     x1 + x2 =e= 5;
+  15  c3..     x1 - 2*x2 =g= 0;
+  16  o..      f =e= 5*x1 - x2 + x3;
+  17   
+  18  Model Feasible_LP /all/;
+  19   
+  20  Solve Feasible_LP using LP minimizing f;
+  21   
+  22  display x1.l, x2.l, x3.l, f.l;
+
+
+COMPILATION TIME     =        0.000 SECONDS      2 MB  36.2.0 r433180e WEX-WEI
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:34 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE Feasible_LP Using LP From line 20
+
+
+---- c1  =G=  Constraint 1
+
+c1..  x1 + x2 + x3 =G= 0 ; (LHS = 0)
+     
+
+---- c2  =E=  Constraint 2
+
+c2..  x1 + x2 =E= 5 ; (LHS = 0, INFES = 5 ****)
+     
+
+---- c3  =G=  Constraint 3
+
+c3..  x1 - 2*x2 =G= 0 ; (LHS = 0)
+     
+
+---- o  =E=  Objective Function definition
+
+o..  - 5*x1 + x2 - x3 + f =E= 0 ; (LHS = 0)
+     
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:34 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE Feasible_LP Using LP From line 20
+
+
+---- x1  Decision Variable 1
+
+x1
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       c1
+        1       c2
+        1       c3
+       -5       o
+
+
+---- x2  Decision Variable 2
+
+x2
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       c1
+        1       c2
+       -2       c3
+        1       o
+
+
+---- x3  Decision Variable 3
+
+x3
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       c1
+       -1       o
+
+
+---- f  Objective Function
+
+f
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       o
+
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:34 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE Feasible_LP Using LP From line 20
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           4     SINGLE EQUATIONS            4
+BLOCKS OF VARIABLES           4     SINGLE VARIABLES            4
+NON ZERO ELEMENTS            11
+
+
+GENERATION TIME      =        0.015 SECONDS      3 MB  36.2.0 r433180e WEX-WEI
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:34 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE Feasible_LP Using LP From line 20
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   Feasible_LP         OBJECTIVE  f
+     TYPE    LP                  DIRECTION  MINIMIZE
+     SOLVER  CPLEX               FROM LINE  20
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+**** OBJECTIVE VALUE               10.0000
+
+ RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ ITERATION COUNT, LIMIT         0    2147483647
+--- *** This solver runs with a demo license. No commercial use.
+--- GMO setup time: 0.00s
+--- GMO memory 0.50 Mb (peak 0.50 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 20.1.0.1 link memory 0.00 Mb (peak 0.00 Mb)
+--- Starting Cplex
+
+
+--- LP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.00 ticks)
+
+
+Optimal solution found
+Objective:           10.000000
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU c1                  .              .            +INF            1.0000      
+---- EQU c2                 5.0000         5.0000         5.0000         2.0000      
+---- EQU c3                  .              .            +INF            2.0000      
+---- EQU o                   .              .              .             1.0000      
+
+  c1  Constraint 1
+  c2  Constraint 2
+  c3  Constraint 3
+  o  Objective Function definition
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR x1                -INF            3.3333        +INF             .          
+---- VAR x2                -INF            1.6667        +INF             .          
+---- VAR x3                -INF           -5.0000        +INF             .          
+---- VAR f                 -INF           10.0000        +INF             .          
+
+  x1  Decision Variable 1
+  x2  Decision Variable 2
+  x3  Decision Variable 3
+  f  Objective Function
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/21/21 21:23:34 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----     22 VARIABLE x1.L                  =        3.333  Decision Variable 1
+            VARIABLE x2.L                  =        1.667  Decision Variable 2
+            VARIABLE x3.L                  =       -5.000  Decision Variable 3
+            VARIABLE f.L                   =       10.000  Objective Function
+
+
+EXECUTION TIME       =        0.125 SECONDS      3 MB  36.2.0 r433180e WEX-WEI
+
+
+USER: GAMS Demo license for Nikitha Reddy Metta      G210913|0002CO-GEN
+      Indian Institute of Technology Guwahati, India           DL048129
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\USER\OneDrive\Documents\GAMS\Studio\workspace\Feasible_LP.gms
+Output     C:\Users\USER\OneDrive\Documents\GAMS\Studio\workspace\Feasible_LP.lst

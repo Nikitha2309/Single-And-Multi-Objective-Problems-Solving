@@ -1,0 +1,26 @@
+B 3 C o m p i l a t i o n
+B 33 Equation Listing    SOLVE Feasible_LP Using LP From line 20
+D 36 c1
+D 41 c2
+D 46 c3
+D 51 o
+B 57 Column Listing      SOLVE Feasible_LP Using LP From line 20
+E 60 x1
+E 70 x2
+E 80 x3
+E 88 f
+B 96 Model Statistics    SOLVE Feasible_LP Using LP From line 20
+B 109 Solution Report     SOLVE Feasible_LP Using LP From line 20
+F 142 c1
+F 143 c2
+F 144 c3
+F 145 o
+G 154 x1
+G 155 x2
+G 156 x3
+G 157 f
+B 170 E x e c u t i o n
+I 172 x1
+I 173 x2
+I 174 x3
+I 175 f
