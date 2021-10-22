@@ -1,0 +1,63 @@
+B 3 C o m p i l a t i o n
+B 74 Equation Listing    SOLVE Feasible_MINLP Using MINLP From line 46
+D 77 c1
+D 82 c2
+D 87 c3
+D 92 c4
+D 97 o1
+D 102 o2
+B 108 Column Listing      SOLVE Feasible_MINLP Using MINLP From line 46
+E 111 x1
+E 122 x2
+E 133 x3
+E 143 f1
+E 150 f2
+B 158 Model Statistics    SOLVE Feasible_MINLP Using MINLP From line 46
+B 172 Solution Report     SOLVE Feasible_MINLP Using MINLP From line 46
+B 199 Equation Listing    SOLVE Feasible_MINLP Using MINLP From line 50
+D 202 c1
+D 207 c2
+D 212 c3
+D 217 c4
+D 222 o1
+D 227 o2
+B 233 Column Listing      SOLVE Feasible_MINLP Using MINLP From line 50
+E 236 x1
+E 247 x2
+E 258 x3
+E 268 f1
+E 275 f2
+B 283 Model Statistics    SOLVE Feasible_MINLP Using MINLP From line 50
+B 297 Solution Report     SOLVE Feasible_MINLP Using MINLP From line 50
+B 324 Equation Listing    SOLVE Feasible_MINLP Using MINLP From line 57
+D 327 c1
+D 332 c2
+D 337 c3
+D 342 c4
+D 347 o1
+D 352 o2
+B 358 Column Listing      SOLVE Feasible_MINLP Using MINLP From line 57
+E 361 x1
+E 372 x2
+E 383 x3
+E 393 f1
+E 400 f2
+B 408 Model Statistics    SOLVE Feasible_MINLP Using MINLP From line 57
+B 427 Solution Report     SOLVE Feasible_MINLP Using MINLP From line 57
+B 454 Equation Listing    SOLVE Feasible_MINLP Using MINLP From line 57
+D 457 c1
+D 462 c2
+D 467 c3
+D 472 c4
+D 477 o1
+D 482 o2
+B 488 Column Listing      SOLVE Feasible_MINLP Using MINLP From line 57
+E 491 x1
+E 502 x2
+E 513 x3
+E 523 f1
+E 530 f2
+B 538 Model Statistics    SOLVE Feasible_MINLP Using MINLP From line 57
+B 557 Solution Report     SOLVE Feasible_MINLP Using MINLP From line 57
+B 584 E x e c u t i o n
+I 586 report
