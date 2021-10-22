@@ -28,3 +28,4 @@ This repository contains examples of solving Single Objective Problems &amp; Mul
      - Mixed Integer Non Linear Programming Problem
          - [Feasible Mixed Integer Non Linear Programming Problem](https://github.com/Nikitha2309/Single-Multi-Objective-Problems-Solving/tree/main/Multi%20Objective/MINLP/Feasible)
          - [Infeasible Mixed Integer Non Linear Programming Problem](https://github.com/Nikitha2309/Single-Multi-Objective-Problems-Solving/tree/main/Multi%20Objective/MINLP/InFeasible)
+         
