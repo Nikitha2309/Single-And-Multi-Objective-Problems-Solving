@@ -35,6 +35,7 @@ ranges('F2max') = f2.l;
 ranges('F1min') = f1.l;
 
 
+
 loop(counter,
    E = (ranges('F2max') - ranges('F2min'))*(ord(counter) - 1)/(card(counter) - 1) + ranges('F2min');
    f2.lo = E;
