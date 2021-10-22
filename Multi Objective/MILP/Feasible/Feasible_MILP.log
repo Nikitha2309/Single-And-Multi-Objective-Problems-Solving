@@ -1,0 +1,296 @@
+
+--- Job Feasible_MILP.gms Start 10/22/21 14:13:11 36.2.0 r433180e WEX-WEI x86 64bit/MS Windows
+--- Applying:
+    C:\GAMS\36\gmsprmNT.txt
+--- GAMS Parameters defined
+    Input "C:\Users\USER\OneDrive\Documents\GAMS\Studio\workspace\CL643 Assignment 4\Multi Objective\Feasible_MILP.gms"
+    PageSize 0
+    ScrDir "C:\Users\USER\OneDrive\Documents\GAMS\Studio\workspace\CL643 Assignment 4\Multi Objective\225a\"
+    SysDir C:\GAMS\36\
+    LogOption 3
+    ErrMsg 1
+    ErrorLog 99
+    IDE 1
+    LstTitleLeftAligned 1
+Licensee: GAMS Demo license for Nikitha Reddy Metta      G210913|0002CO-GEN
+          Indian Institute of Technology Guwahati, India           DL048129
+          C:\GAMS\36\gamslice.txt
+          m.nikitha@iitg.ac.in, Nikitha Reddy Metta                        
+          Demo license for demonstration and instructional purposes only
+Processor information: 1 socket(s), 4 core(s), and 8 thread(s) available
+GAMS 36.2.0   Copyright (C) 1987-2021 GAMS Development. All rights reserved
+--- Starting compilation
+--- Feasible_MILP.gms(58) 3 Mb
+--- Starting execution: elapsed 0:00:00.008
+--- Feasible_MILP.gms(30) 4 Mb
+--- Generating MIP model Feasible_MILP
+--- Feasible_MILP.gms(40) 4 Mb
+---   5 rows  5 columns  13 non-zeroes
+---   1 discrete-columns
+--- Executing CPLEX (Solvelink=2): elapsed 0:00:00.024
+
+IBM ILOG CPLEX   36.2.0 r433180e Released Sep 03, 2021 WEI x86 64bit/MS Window
+
+--- *** This solver runs with a demo license. No commercial use.
+--- GMO setup time: 0.00s
+--- GMO memory 0.50 Mb (peak 0.50 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 20.1.0.1 link memory 0.00 Mb (peak 0.00 Mb)
+--- Starting Cplex
+
+Version identifier: 20.1.0.1 | 2021-04-07 | 3a818710c
+CPXPARAM_Advance                                 0
+CPXPARAM_Simplex_Display                         2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+Generic callback                                 0x50
+Found incumbent of value 30.000000 after 0.01 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 3 rows and 4 columns.
+Aggregator did 1 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.05 sec. (0.00 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.06 sec. (0.01 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.06 sec. (0.01 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.06sec (det. 0.01 ticks)
+
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 20.1.0.1 | 2021-04-07 | 3a818710c
+CPXPARAM_Advance                                 2
+CPXPARAM_Simplex_Display                         2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+Tried aggregator 1 time.
+LP Presolve eliminated 3 rows and 4 columns.
+Aggregator did 1 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.00 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.00 ticks)
+
+
+Proven optimal solution
+MIP Solution:           15.000000    (0 iterations, 0 nodes)
+Final Solve:            15.000000    (0 iterations)
+
+Best possible:          15.000000
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model Feasible_MILP
+--- Executing after solve: elapsed 0:00:00.247
+--- Feasible_MILP.gms(42) 4 Mb
+--- Generating MIP model Feasible_MILP
+--- Feasible_MILP.gms(44) 4 Mb
+---   5 rows  5 columns  13 non-zeroes
+---   1 discrete-columns
+--- Executing CPLEX (Solvelink=2): elapsed 0:00:00.251
+
+IBM ILOG CPLEX   36.2.0 r433180e Released Sep 03, 2021 WEI x86 64bit/MS Window
+
+--- *** This solver runs with a demo license. No commercial use.
+--- GMO setup time: 0.00s
+--- GMO memory 0.50 Mb (peak 0.50 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 20.1.0.1 link memory 0.00 Mb (peak 0.00 Mb)
+--- Starting Cplex
+
+Version identifier: 20.1.0.1 | 2021-04-07 | 3a818710c
+CPXPARAM_Advance                                 2
+CPXPARAM_Simplex_Display                         2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+Generic callback                                 0x50
+Found incumbent of value 10.000000 after 0.00 sec. (0.00 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.00 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.00 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.00 ticks)
+
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 20.1.0.1 | 2021-04-07 | 3a818710c
+CPXPARAM_Advance                                 2
+CPXPARAM_Simplex_Display                         2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+Tried aggregator 1 time.
+LP Presolve eliminated 3 rows and 4 columns.
+Aggregator did 1 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.00 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.00 ticks)
+
+
+Proven optimal solution
+MIP Solution:           10.000000    (0 iterations, 0 nodes)
+Final Solve:            10.000000    (0 iterations)
+
+Best possible:          10.000000
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model Feasible_MILP
+--- Executing after solve: elapsed 0:00:00.296
+--- Feasible_MILP.gms(49) 4 Mb
+--- Generating MIP model Feasible_MILP
+--- Feasible_MILP.gms(52) 4 Mb
+--- LOOPS counter = count1
+---   5 rows  5 columns  13 non-zeroes
+---   1 discrete-columns
+--- Executing CPLEX (Solvelink=2): elapsed 0:00:00.300
+
+IBM ILOG CPLEX   36.2.0 r433180e Released Sep 03, 2021 WEI x86 64bit/MS Window
+
+--- *** This solver runs with a demo license. No commercial use.
+--- GMO setup time: 0.00s
+--- GMO memory 0.50 Mb (peak 0.50 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 20.1.0.1 link memory 0.00 Mb (peak 0.00 Mb)
+--- Starting Cplex
+
+Version identifier: 20.1.0.1 | 2021-04-07 | 3a818710c
+CPXPARAM_Advance                                 2
+CPXPARAM_Simplex_Display                         2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+Generic callback                                 0x50
+Found incumbent of value 25.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 3 rows and 4 columns.
+Aggregator did 1 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.00 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.01 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.01 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.01 ticks)
+
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 20.1.0.1 | 2021-04-07 | 3a818710c
+CPXPARAM_Advance                                 2
+CPXPARAM_Simplex_Display                         2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+Tried aggregator 1 time.
+LP Presolve eliminated 3 rows and 4 columns.
+Aggregator did 1 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.00 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.00 ticks)
+
+
+Proven optimal solution
+MIP Solution:           15.000000    (0 iterations, 0 nodes)
+Final Solve:            15.000000    (0 iterations)
+
+Best possible:          15.000000
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model Feasible_MILP
+--- Executing after solve: elapsed 0:00:00.345
+--- Feasible_MILP.gms(49) 4 Mb
+--- Generating MIP model Feasible_MILP
+--- Feasible_MILP.gms(52) 4 Mb
+--- LOOPS counter = count2
+---   5 rows  5 columns  13 non-zeroes
+---   1 discrete-columns
+--- Executing CPLEX (Solvelink=2): elapsed 0:00:00.348
+
+IBM ILOG CPLEX   36.2.0 r433180e Released Sep 03, 2021 WEI x86 64bit/MS Window
+
+--- *** This solver runs with a demo license. No commercial use.
+--- GMO setup time: 0.00s
+--- GMO memory 0.50 Mb (peak 0.50 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 20.1.0.1 link memory 0.00 Mb (peak 0.00 Mb)
+--- Starting Cplex
+
+Version identifier: 20.1.0.1 | 2021-04-07 | 3a818710c
+CPXPARAM_Advance                                 2
+CPXPARAM_Simplex_Display                         2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+Generic callback                                 0x50
+Found incumbent of value 25.000000 after 0.00 sec. (0.00 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 3 rows and 4 columns.
+Aggregator did 1 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.00 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.01 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.01 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.01 ticks)
+
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 20.1.0.1 | 2021-04-07 | 3a818710c
+CPXPARAM_Advance                                 2
+CPXPARAM_Simplex_Display                         2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+Tried aggregator 1 time.
+LP Presolve eliminated 3 rows and 4 columns.
+Aggregator did 1 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.00 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.00 ticks)
+
+
+Proven optimal solution
+MIP Solution:           15.000000    (0 iterations, 0 nodes)
+Final Solve:            15.000000    (0 iterations)
+
+Best possible:          15.000000
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model Feasible_MILP
+--- Executing after solve: elapsed 0:00:00.382
+--- Feasible_MILP.gms(58) 4 Mb
+*** Status: Normal completion
+--- Job Feasible_MILP.gms Stop 10/22/21 14:13:11 elapsed 0:00:00.382
