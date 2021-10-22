@@ -1,0 +1,99 @@
+B 3 C o m p i l a t i o n
+B 60 Equation Listing    SOLVE Feasible_NLP Using NLP From line 32
+D 63 c1
+D 68 c2
+D 73 c3
+D 78 o1
+D 83 o2
+B 89 Column Listing      SOLVE Feasible_NLP Using NLP From line 32
+E 92 x1
+E 102 x2
+E 112 x3
+E 121 f1
+E 128 f2
+B 136 Model Statistics    SOLVE Feasible_NLP Using NLP From line 32
+B 150 Solution Report     SOLVE Feasible_NLP Using NLP From line 32
+F 198 c1
+F 199 c2
+F 200 c3
+F 201 o1
+F 202 o2
+G 212 x1
+G 213 x2
+G 214 x3
+G 215 f1
+G 216 f2
+B 231 Equation Listing    SOLVE Feasible_NLP Using NLP From line 36
+D 234 c1
+D 239 c2
+D 244 c3
+D 249 o1
+D 254 o2
+B 260 Column Listing      SOLVE Feasible_NLP Using NLP From line 36
+E 263 x1
+E 273 x2
+E 283 x3
+E 292 f1
+E 299 f2
+B 307 Model Statistics    SOLVE Feasible_NLP Using NLP From line 36
+B 321 Solution Report     SOLVE Feasible_NLP Using NLP From line 36
+F 377 c1
+F 378 c2
+F 379 c3
+F 380 o1
+F 381 o2
+G 391 x1
+G 392 x2
+G 393 x3
+G 394 f1
+G 395 f2
+B 410 Equation Listing    SOLVE Feasible_NLP Using NLP From line 43
+D 413 c1
+D 418 c2
+D 423 c3
+D 428 o1
+D 433 o2
+B 439 Column Listing      SOLVE Feasible_NLP Using NLP From line 43
+E 442 x1
+E 452 x2
+E 462 x3
+E 471 f1
+E 478 f2
+B 486 Model Statistics    SOLVE Feasible_NLP Using NLP From line 43
+B 505 Solution Report     SOLVE Feasible_NLP Using NLP From line 43
+F 557 c1
+F 558 c2
+F 559 c3
+F 560 o1
+F 561 o2
+G 571 x1
+G 572 x2
+G 573 x3
+G 574 f1
+G 575 f2
+B 590 Equation Listing    SOLVE Feasible_NLP Using NLP From line 43
+D 593 c1
+D 598 c2
+D 603 c3
+D 608 o1
+D 613 o2
+B 619 Column Listing      SOLVE Feasible_NLP Using NLP From line 43
+E 622 x1
+E 632 x2
+E 642 x3
+E 651 f1
+E 658 f2
+B 667 Model Statistics    SOLVE Feasible_NLP Using NLP From line 43
+B 686 Solution Report     SOLVE Feasible_NLP Using NLP From line 43
+F 756 c1
+F 757 c2
+F 758 c3
+F 759 o1
+F 760 o2
+G 770 x1
+G 771 x2
+G 772 x3
+G 773 f1
+G 774 f2
+B 789 E x e c u t i o n
+I 789 report
