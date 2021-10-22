@@ -1,0 +1,191 @@
+
+--- Job InFeasible_NLP.gms Start 10/22/21 14:13:15 36.2.0 r433180e WEX-WEI x86 64bit/MS Windows
+--- Applying:
+    C:\GAMS\36\gmsprmNT.txt
+--- GAMS Parameters defined
+    Input "C:\Users\USER\OneDrive\Documents\GAMS\Studio\workspace\CL643 Assignment 4\Multi Objective\InFeasible_NLP.gms"
+    PageSize 0
+    ScrDir "C:\Users\USER\OneDrive\Documents\GAMS\Studio\workspace\CL643 Assignment 4\Multi Objective\225a\"
+    SysDir C:\GAMS\36\
+    LogOption 3
+    ErrMsg 1
+    ErrorLog 99
+    IDE 1
+    LstTitleLeftAligned 1
+Licensee: GAMS Demo license for Nikitha Reddy Metta      G210913|0002CO-GEN
+          Indian Institute of Technology Guwahati, India           DL048129
+          C:\GAMS\36\gamslice.txt
+          m.nikitha@iitg.ac.in, Nikitha Reddy Metta                        
+          Demo license for demonstration and instructional purposes only
+Processor information: 1 socket(s), 4 core(s), and 8 thread(s) available
+GAMS 36.2.0   Copyright (C) 1987-2021 GAMS Development. All rights reserved
+--- Starting compilation
+--- InFeasible_NLP.gms(52) 3 Mb
+--- Starting execution: elapsed 0:00:00.008
+--- InFeasible_NLP.gms(25) 4 Mb
+--- Generating NLP model InFeasible_NLP
+--- InFeasible_NLP.gms(35) 6 Mb
+---   6 rows  5 columns  15 non-zeroes
+---   16 nl-code  5 nl-non-zeroes
+--- InFeasible_NLP.gms(35) 4 Mb
+--- Executing CONOPT (Solvelink=2): elapsed 0:00:00.018
+
+CONOPT 3         36.2.0 r433180e Released Sep 03, 2021 WEI x86 64bit/MS Window
+
+--- *** This solver runs with a demo license. No commercial use.
+ 
+ 
+    C O N O P T 3   version 3.17K
+    Copyright (C)   ARKI Consulting and Development A/S
+                    Bagsvaerdvej 246 A
+                    DK-2880 Bagsvaerd, Denmark
+ 
+ 
+   Iter Phase Ninf   Infeasibility   RGmax    NSB   Step InItr MX OK
+      0   0        1.7000000000E+01 (Input point)
+ 
+                   Pre-triangular equations:   0
+                   Post-triangular equations:  3
+                   Definitional equations:     1
+ 
+      1   0        4.0000000000E+00 (After pre-processing)
+      2   0        1.0000000000E+00 (After scaling)
+ 
+ ** Feasible solution. Value of objective =    89.0425944776
+ 
+   Iter Phase Ninf     Objective     RGmax    NSB   Step InItr MX OK
+     11   4        3.4146097595E+01 2.7E-02     2 1.0E+00    2 F  T
+     16   4        3.4136112603E+01 1.8E-04     2 1.0E+00    1 F  T
+     21   4        3.4136045324E+01 1.2E-06     2 1.0E+00    2 F  T
+     24   4        3.4136044930E+01 6.2E-08     2
+ 
+ ** Optimal solution. Reduced gradient less than tolerance.
+ 
+--- Reading solution for model InFeasible_NLP
+--- Executing after solve: elapsed 0:00:00.123
+--- InFeasible_NLP.gms(37) 4 Mb
+--- Generating NLP model InFeasible_NLP
+--- InFeasible_NLP.gms(39) 6 Mb
+---   6 rows  5 columns  15 non-zeroes
+---   16 nl-code  5 nl-non-zeroes
+--- InFeasible_NLP.gms(39) 4 Mb
+--- Executing CONOPT (Solvelink=2): elapsed 0:00:00.128
+
+CONOPT 3         36.2.0 r433180e Released Sep 03, 2021 WEI x86 64bit/MS Window
+
+--- *** This solver runs with a demo license. No commercial use.
+ 
+ 
+    C O N O P T 3   version 3.17K
+    Copyright (C)   ARKI Consulting and Development A/S
+                    Bagsvaerdvej 246 A
+                    DK-2880 Bagsvaerd, Denmark
+ 
+ 
+   Iter Phase Ninf   Infeasibility   RGmax    NSB   Step InItr MX OK
+      0   0        1.7763568394E-15 (Input point)
+ 
+                   Pre-triangular equations:   0
+                   Post-triangular equations:  3
+                   Definitional equations:     1
+ 
+      1   0        0.0000000000E+00 (After pre-processing)
+      2   0        0.0000000000E+00 (After scaling)
+ 
+ ** Feasible solution. Value of objective =    43.1998226120
+ 
+   Iter Phase Ninf     Objective     RGmax    NSB   Step InItr MX OK
+      4   3        1.0000000000E+10 2.0E+00     1
+ 
+ ** Unbounded solution. A variable has reached 'Infinity'.
+    Largest legal value (Rtmaxv) is 1.00E+10
+ 
+--- Reading solution for model InFeasible_NLP
+--- Executing after solve: elapsed 0:00:00.184
+--- InFeasible_NLP.gms(43) 4 Mb
+--- Generating NLP model InFeasible_NLP
+--- InFeasible_NLP.gms(46) 6 Mb
+--- LOOPS counter = count1
+---   6 rows  5 columns  15 non-zeroes
+---   16 nl-code  5 nl-non-zeroes
+--- InFeasible_NLP.gms(46) 4 Mb
+--- Executing CONOPT (Solvelink=2): elapsed 0:00:00.188
+
+CONOPT 3         36.2.0 r433180e Released Sep 03, 2021 WEI x86 64bit/MS Window
+
+--- *** This solver runs with a demo license. No commercial use.
+ 
+ 
+    C O N O P T 3   version 3.17K
+    Copyright (C)   ARKI Consulting and Development A/S
+                    Bagsvaerdvej 246 A
+                    DK-2880 Bagsvaerd, Denmark
+ 
+ 
+   Iter Phase Ninf   Infeasibility   RGmax    NSB   Step InItr MX OK
+      0   0        1.0000000000E+08 (Input point)
+ 
+                   Pre-triangular equations:   0
+                   Post-triangular equations:  1
+                   Definitional equations:     2
+ 
+      1   0        0.0000000000E+00 (After pre-processing)
+      2   0        0.0000000000E+00 (After scaling)
+ 
+ ** Feasible solution. Value of objective =    34.1360448679
+ 
+   Iter Phase Ninf     Objective     RGmax    NSB   Step InItr MX OK
+      4   3        3.4136044868E+01 9.0E-12     1
+ 
+ ** Optimal solution. Reduced gradient less than tolerance.
+ 
+--- Reading solution for model InFeasible_NLP
+--- Executing after solve: elapsed 0:00:00.214
+--- InFeasible_NLP.gms(43) 4 Mb
+--- Generating NLP model InFeasible_NLP
+--- InFeasible_NLP.gms(46) 6 Mb
+--- LOOPS counter = count2
+---   6 rows  5 columns  15 non-zeroes
+---   16 nl-code  5 nl-non-zeroes
+--- InFeasible_NLP.gms(46) 4 Mb
+--- Executing CONOPT (Solvelink=2): elapsed 0:00:00.217
+
+CONOPT 3         36.2.0 r433180e Released Sep 03, 2021 WEI x86 64bit/MS Window
+
+--- *** This solver runs with a demo license. No commercial use.
+ 
+ 
+    C O N O P T 3   version 3.17K
+    Copyright (C)   ARKI Consulting and Development A/S
+                    Bagsvaerdvej 246 A
+                    DK-2880 Bagsvaerd, Denmark
+ 
+ 
+   Iter Phase Ninf   Infeasibility   RGmax    NSB   Step InItr MX OK
+      0   0        0.0000000000E+00 (Input point)
+ 
+ ** Warning **  Some variables are considered fixed because their
+                bounds are very close, i.e. within a relative
+                distance of Rtbndt = 1.0E-07
+ 
+ 
+                   Pre-triangular equations:   1
+                   Post-triangular equations:  1
+                   Definitional equations:     1
+ 
+      1   0        0.0000000000E+00 (After pre-processing)
+      2   0        0.0000000000E+00 (After scaling)
+ 
+ ** Feasible solution. Value of objective =    34.1360448679
+ 
+   Iter Phase Ninf     Objective     RGmax    NSB   Step InItr MX OK
+      4   3        3.4136044868E+01 9.0E-12     0
+ 
+ ** Unbounded solution. A variable has reached 'Infinity'.
+    Largest legal value (Rtmaxv) is 1.00E+10
+ 
+--- Reading solution for model InFeasible_NLP
+--- Executing after solve: elapsed 0:00:00.255
+--- InFeasible_NLP.gms(52) 4 Mb
+*** Status: Normal completion
+--- Job InFeasible_NLP.gms Stop 10/22/21 14:13:15 elapsed 0:00:00.255

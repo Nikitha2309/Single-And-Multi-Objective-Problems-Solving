@@ -1,0 +1,107 @@
+B 3 C o m p i l a t i o n
+B 63 Equation Listing    SOLVE InFeasible_NLP Using NLP From line 35
+D 66 c1
+D 71 c2
+D 76 c3
+D 81 c4
+D 86 o1
+D 91 o2
+B 97 Column Listing      SOLVE InFeasible_NLP Using NLP From line 35
+E 100 x1
+E 111 x2
+E 122 x3
+E 131 f1
+E 138 f2
+B 146 Model Statistics    SOLVE InFeasible_NLP Using NLP From line 35
+B 160 Solution Report     SOLVE InFeasible_NLP Using NLP From line 35
+F 209 c1
+F 210 c2
+F 211 c3
+F 212 c4
+F 213 o1
+F 214 o2
+G 225 x1
+G 226 x2
+G 227 x3
+G 228 f1
+G 229 f2
+B 244 Equation Listing    SOLVE InFeasible_NLP Using NLP From line 39
+D 247 c1
+D 252 c2
+D 257 c3
+D 262 c4
+D 267 o1
+D 272 o2
+B 278 Column Listing      SOLVE InFeasible_NLP Using NLP From line 39
+E 281 x1
+E 292 x2
+E 303 x3
+E 312 f1
+E 319 f2
+B 327 Model Statistics    SOLVE InFeasible_NLP Using NLP From line 39
+B 341 Solution Report     SOLVE InFeasible_NLP Using NLP From line 39
+F 398 c1
+F 399 c2
+F 400 c3
+F 401 c4
+F 402 o1
+F 403 o2
+G 414 x1
+G 415 x2
+G 416 x3
+G 417 f1
+G 418 f2
+B 433 Equation Listing    SOLVE InFeasible_NLP Using NLP From line 46
+D 436 c1
+D 441 c2
+D 446 c3
+D 451 c4
+D 456 o1
+D 461 o2
+B 467 Column Listing      SOLVE InFeasible_NLP Using NLP From line 46
+E 470 x1
+E 481 x2
+E 492 x3
+E 501 f1
+E 508 f2
+B 516 Model Statistics    SOLVE InFeasible_NLP Using NLP From line 46
+B 535 Solution Report     SOLVE InFeasible_NLP Using NLP From line 46
+F 587 c1
+F 588 c2
+F 589 c3
+F 590 c4
+F 591 o1
+F 592 o2
+G 603 x1
+G 604 x2
+G 605 x3
+G 606 f1
+G 607 f2
+B 622 Equation Listing    SOLVE InFeasible_NLP Using NLP From line 46
+D 625 c1
+D 630 c2
+D 635 c3
+D 640 c4
+D 645 o1
+D 650 o2
+B 656 Column Listing      SOLVE InFeasible_NLP Using NLP From line 46
+E 659 x1
+E 670 x2
+E 681 x3
+E 690 f1
+E 697 f2
+B 706 Model Statistics    SOLVE InFeasible_NLP Using NLP From line 46
+B 725 Solution Report     SOLVE InFeasible_NLP Using NLP From line 46
+F 796 c1
+F 797 c2
+F 798 c3
+F 799 c4
+F 800 o1
+F 801 o2
+G 812 x1
+G 813 x2
+G 814 x3
+G 815 f1
+G 816 f2
+B 831 E x e c u t i o n
+I 831 report

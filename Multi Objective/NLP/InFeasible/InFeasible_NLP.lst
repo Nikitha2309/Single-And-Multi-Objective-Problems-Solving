@@ -1,0 +1,853 @@
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/22/21 14:13:15 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  Variables
+   2           x1      Decision Variable 1
+   3           x2      Decision Variable 2
+   4           x3      Decision Variable 3
+   5           f1      Objective Function 1
+   6           f2      Objective Function 2;
+   7   
+   8  Equations
+   9           c1      Constraint 1
+  10           c2      Constraint 2
+  11           c3      Constraint 3
+  12           c4      Constraint 4
+  13           o1      Objective Function 1 definition
+  14           o2      Objective Function 2 definition;
+  15   
+  16  c1..     x1 + x2 -x3 =g= 0;
+  17  c2..     x1 + x2 =e= 5;
+  18  c3..     x1 - 2*x2 =g= 0;
+  19  c4..     x1*x2 =l= 0;
+  20  o1..     f1 =e= sqr(x1) - 2/x2 + exp(x3);
+  21  o2..     f2 =e= 10 - 2*x3;
+  22   
+  23  * Bounding x2, To avoid Zero Division Error in GAMS
+  24  x2.l = 1;
+  25  x2.up = 100;
+  26   
+  27  Model InFeasible_NLP /all/;
+  28   
+  29  Set counter / count1*count2 /;
+  30   
+  31  Scalar E;
+  32   
+  33  Parameter report(counter,*), ranges(*);
+  34   
+  35  solve InFeasible_NLP using NLP minimizing f1;
+  36  ranges('F1max') = f1.l;
+  37  ranges('F2min') = f2.l;
+  38   
+  39  solve InFeasible_NLP using NLP maximizing f2;
+  40  ranges('F2max') = f2.l;
+  41  ranges('F1min') = f1.l;
+  42   
+  43  loop(counter,
+  44     E = (ranges('F2max') - ranges('F2min'))*(ord(counter) - 1)/(card(counter) - 1) + ranges('F2min');
+  45     f2.lo = E;
+  46     solve InFeasible_NLP using NLP minimizing f1;
+  47     report(counter,'F1') = f1.l;
+  48     report(counter,'F2') = f2.l;
+  49     report(counter,'E')   = E;
+  50  );
+  51   
+  52  display report;
+
+
+COMPILATION TIME     =        0.000 SECONDS      3 MB  36.2.0 r433180e WEX-WEI
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/22/21 14:13:15 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE InFeasible_NLP Using NLP From line 35
+
+
+---- c1  =G=  Constraint 1
+
+c1..  x1 + x2 - x3 =G= 0 ; (LHS = 1)
+     
+
+---- c2  =E=  Constraint 2
+
+c2..  x1 + x2 =E= 5 ; (LHS = 1, INFES = 4 ****)
+     
+
+---- c3  =G=  Constraint 3
+
+c3..  x1 - 2*x2 =G= 0 ; (LHS = -2, INFES = 2 ****)
+     
+
+---- c4  =L=  Constraint 4
+
+c4..  (1)*x1 + (0)*x2 =L= 0 ; (LHS = 0)
+     
+
+---- o1  =E=  Objective Function 1 definition
+
+o1..  (0)*x1 - (2)*x2 - (1)*x3 + f1 =E= 0 ; (LHS = 1, INFES = 1 ****)
+     
+
+---- o2  =E=  Objective Function 2 definition
+
+o2..  2*x3 + f2 =E= 10 ; (LHS = 0, INFES = 10 ****)
+     
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/22/21 14:13:15 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE InFeasible_NLP Using NLP From line 35
+
+
+---- x1  Decision Variable 1
+
+x1
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       c1
+        1       c2
+        1       c3
+       (1)      c4
+       (0)      o1
+
+
+---- x2  Decision Variable 2
+
+x2
+                (.LO, .L, .UP, .M = -INF, 1, 100, 0)
+        1       c1
+        1       c2
+       -2       c3
+       (0)      c4
+      (-2)      o1
+
+
+---- x3  Decision Variable 3
+
+x3
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+       -1       c1
+      (-1)      o1
+        2       o2
+
+
+---- f1  Objective Function 1
+
+f1
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       o1
+
+
+---- f2  Objective Function 2
+
+f2
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       o2
+
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/22/21 14:13:15 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE InFeasible_NLP Using NLP From line 35
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           6     SINGLE EQUATIONS            6
+BLOCKS OF VARIABLES           5     SINGLE VARIABLES            5
+NON ZERO ELEMENTS            15     NON LINEAR N-Z              5
+CODE LENGTH                  16     CONSTANT POOL              16
+
+
+GENERATION TIME      =        0.000 SECONDS      4 MB  36.2.0 r433180e WEX-WEI
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/22/21 14:13:15 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE InFeasible_NLP Using NLP From line 35
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   InFeasible_NLP      OBJECTIVE  f1
+     TYPE    NLP                 DIRECTION  MINIMIZE
+     SOLVER  CONOPT              FROM LINE  35
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      2 Locally Optimal
+**** OBJECTIVE VALUE               34.1360
+
+ RESOURCE USAGE, LIMIT          0.000 10000000000.000
+ ITERATION COUNT, LIMIT        24    2147483647
+ EVALUATION ERRORS              0             0
+--- *** This solver runs with a demo license. No commercial use.
+ 
+ 
+    C O N O P T 3   version 3.17K
+    Copyright (C)   ARKI Consulting and Development A/S
+                    Bagsvaerdvej 246 A
+                    DK-2880 Bagsvaerd, Denmark
+ 
+ 
+    The model has 5 variables and 6 constraints
+    with 15 Jacobian elements, 5 of which are nonlinear.
+    The Hessian of the Lagrangian has 3 elements on the diagonal,
+    1 elements below the diagonal, and 3 nonlinear variables.
+ 
+ ** Warning **  The value of LFITER is out of range.
+                LFITER is decreased from 2147483647 to 1000000000.
+ 
+                   Pre-triangular equations:   0
+                   Post-triangular equations:  3
+                   Definitional equations:     1
+ 
+ 
+ ** Optimal solution. Reduced gradient less than tolerance.
+ 
+ 
+ CONOPT time Total                            0.004 seconds
+   of which: Function evaluations             0.000 =  0.0%
+             1st Derivative evaluations       0.000 =  0.0%
+             Directional 2nd Derivative       0.000 =  0.0%
+ 
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU c1                  .            21.5999        +INF            EPS         
+---- EQU c2                 5.0000         5.0000         5.0000        10.8583      
+---- EQU c3                  .             6.2875        +INF             .          
+---- EQU c4                -INF           -2.3301          .             EPS         
+---- EQU o1                  .              .              .             1.0000      
+---- EQU o2                10.0000        10.0000        10.0000         EPS         
+
+  c1  Constraint 1
+  c2  Constraint 2
+  c3  Constraint 3
+  c4  Constraint 4
+  o1  Objective Function 1 definition
+  o2  Objective Function 2 definition
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR x1                -INF            5.4292        +INF             .          
+---- VAR x2                -INF           -0.4292       100.0000          .          
+---- VAR x3                -INF          -16.5999        +INF             .          
+---- VAR f1                -INF           34.1360        +INF             .          
+---- VAR f2                -INF           43.1998        +INF             .          
+
+  x1  Decision Variable 1
+  x2  Decision Variable 2
+  x3  Decision Variable 3
+  f1  Objective Function 1
+  f2  Objective Function 2
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0     ERRORS
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/22/21 14:13:15 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE InFeasible_NLP Using NLP From line 39
+
+
+---- c1  =G=  Constraint 1
+
+c1..  x1 + x2 - x3 =G= 0 ; (LHS = 21.5999113059938)
+     
+
+---- c2  =E=  Constraint 2
+
+c2..  x1 + x2 =E= 5 ; (LHS = 5)
+     
+
+---- c3  =G=  Constraint 3
+
+c3..  x1 - 2*x2 =G= 0 ; (LHS = 6.2875211895114)
+     
+
+---- c4  =L=  Constraint 4
+
+c4..  - (0.429173729837133)*x1 + (5.42917372983713)*x2 =L= 0 ; (LHS = -2.33005873956798)
+     
+
+---- o1  =E=  Objective Function 1 definition
+
+o1..  - (10.8583474596743)*x1 - (10.8583474596743)*x2 - (6.17660913949578E-8)*x3 + f1 =E= 0 ; (LHS = 0)
+     
+
+---- o2  =E=  Objective Function 2 definition
+
+o2..  2*x3 + f2 =E= 10 ; (LHS = 10)
+     
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/22/21 14:13:15 Page 7
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE InFeasible_NLP Using NLP From line 39
+
+
+---- x1  Decision Variable 1
+
+x1
+                (.LO, .L, .UP, .M = -INF, 5.42917372983713, +INF, 0)
+        1       c1
+        1       c2
+        1       c3
+      (-0.4292) c4
+     (-10.8583) o1
+
+
+---- x2  Decision Variable 2
+
+x2
+                (.LO, .L, .UP, .M = -INF, -0.429173729837133, 100, 0)
+        1       c1
+        1       c2
+       -2       c3
+       (5.4292) c4
+     (-10.8583) o1
+
+
+---- x3  Decision Variable 3
+
+x3
+                (.LO, .L, .UP, .M = -INF, -16.5999113059938, +INF, 0)
+       -1       c1
+ (-6.176609E-8) o1
+        2       o2
+
+
+---- f1  Objective Function 1
+
+f1
+                (.LO, .L, .UP, .M = -INF, 34.1360449296557, +INF, 0)
+        1       o1
+
+
+---- f2  Objective Function 2
+
+f2
+                (.LO, .L, .UP, .M = -INF, 43.1998226119876, +INF, 0)
+        1       o2
+
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/22/21 14:13:15 Page 8
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE InFeasible_NLP Using NLP From line 39
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           6     SINGLE EQUATIONS            6
+BLOCKS OF VARIABLES           5     SINGLE VARIABLES            5
+NON ZERO ELEMENTS            15     NON LINEAR N-Z              5
+CODE LENGTH                  16     CONSTANT POOL              16
+
+
+GENERATION TIME      =        0.000 SECONDS      4 MB  36.2.0 r433180e WEX-WEI
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/22/21 14:13:15 Page 9
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE InFeasible_NLP Using NLP From line 39
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   InFeasible_NLP      OBJECTIVE  f2
+     TYPE    NLP                 DIRECTION  MAXIMIZE
+     SOLVER  CONOPT              FROM LINE  39
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      3 Unbounded
+**** OBJECTIVE VALUE      10000000000.0000
+
+ RESOURCE USAGE, LIMIT          0.000 10000000000.000
+ ITERATION COUNT, LIMIT         4    2147483647
+ EVALUATION ERRORS              0             0
+--- *** This solver runs with a demo license. No commercial use.
+ 
+ 
+    C O N O P T 3   version 3.17K
+    Copyright (C)   ARKI Consulting and Development A/S
+                    Bagsvaerdvej 246 A
+                    DK-2880 Bagsvaerd, Denmark
+ 
+ 
+    The model has 5 variables and 6 constraints
+    with 15 Jacobian elements, 5 of which are nonlinear.
+    The Hessian of the Lagrangian has 3 elements on the diagonal,
+    1 elements below the diagonal, and 3 nonlinear variables.
+ 
+ ** Warning **  The value of LFITER is out of range.
+                LFITER is decreased from 2147483647 to 1000000000.
+ 
+                   Pre-triangular equations:   0
+                   Post-triangular equations:  3
+                   Definitional equations:     1
+ 
+ 
+ ** Unbounded solution. A variable has reached 'Infinity'.
+    Largest legal value (Rtmaxv) is 1.00E+10
+ 
+    The allowable range can be changed with option:
+ 
+    Rtmaxv=x.xxe+xx
+ 
+ 
+ CONOPT time Total                            0.002 seconds
+   of which: Function evaluations             0.000 =  0.0%
+             1st Derivative evaluations       0.000 =  0.0%
+ 
+
+**** ERRORS/WARNINGS IN VARIABLE f1
+     1 error(s): The variable is unbounded                                                                   DK-2
+     1 error(s): The variable has reached 'infinity'                                                         DK-2
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU c1                  .       5.0000000E+9        +INF            2.0000  NOPT
+---- EQU c2                 5.0000         5.0000         5.0000        -2.0000      
+---- EQU c3                  .             6.2875        +INF             .          
+---- EQU c4                -INF           -2.3301          .             EPS         
+---- EQU o1                  .              .              .             EPS         
+---- EQU o2                10.0000        10.0000        10.0000         1.0000      
+
+  c1  Constraint 1
+  c2  Constraint 2
+  c3  Constraint 3
+  c4  Constraint 4
+  o1  Objective Function 1 definition
+  o2  Objective Function 2 definition
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR x1                -INF            5.4292        +INF             .          
+---- VAR x2                -INF           -0.4292       100.0000          .          
+---- VAR x3                -INF      -5.000000E+9        +INF             .          
+---- VAR f1                -INF           34.1360        +INF             .          
+---- VAR f2                -INF      1.000000E+10        +INF             .     UNBND
+
+  x1  Decision Variable 1
+  x2  Decision Variable 2
+  x3  Decision Variable 3
+  f1  Objective Function 1
+  f2  Objective Function 2
+
+
+**** REPORT SUMMARY :        1     NONOPT ( NOPT)
+                             0 INFEASIBLE
+                             1  UNBOUNDED (UNBND)
+                             2     ERRORS ( ****)
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/22/21 14:13:15 Page 10
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE InFeasible_NLP Using NLP From line 46
+
+
+---- c1  =G=  Constraint 1
+
+c1..  x1 + x2 - x3 =G= 0 ; (LHS = 5000000000)
+     
+
+---- c2  =E=  Constraint 2
+
+c2..  x1 + x2 =E= 5 ; (LHS = 5.00000000001333, INFES = 1.33315580796989E-11 ****)
+     
+
+---- c3  =G=  Constraint 3
+
+c3..  x1 - 2*x2 =G= 0 ; (LHS = 6.28752116598025)
+     
+
+---- c4  =L=  Constraint 4
+
+c4..  - (0.429173721988972)*x1 + (5.4291737220023)*x2 =L= 0 ; (LHS = -2.33005869359645)
+     
+
+---- o1  =E=  Objective Function 1 definition
+
+o1..  - (10.8583474440046)*x1 - (10.8583478568004)*x2 + (0)*x3 + f1 =E= 0 ; (LHS = 0)
+     
+
+---- o2  =E=  Objective Function 2 definition
+
+o2..  2*x3 + f2 =E= 10 ; (LHS = 10)
+     
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/22/21 14:13:15 Page 11
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE InFeasible_NLP Using NLP From line 46
+
+
+---- x1  Decision Variable 1
+
+x1
+                (.LO, .L, .UP, .M = -INF, 5.4291737220023, +INF, 0)
+        1       c1
+        1       c2
+        1       c3
+      (-0.4292) c4
+     (-10.8583) o1
+
+
+---- x2  Decision Variable 2
+
+x2
+                (.LO, .L, .UP, .M = -INF, -0.429173721988972, 100, 0)
+        1       c1
+        1       c2
+       -2       c3
+       (5.4292) c4
+     (-10.8583) o1
+
+
+---- x3  Decision Variable 3
+
+x3
+                (.LO, .L, .UP, .M = -INF, -4999999995, +INF, 0)
+       -1       c1
+       (0)      o1
+        2       o2
+
+
+---- f1  Objective Function 1
+
+f1
+                (.LO, .L, .UP, .M = -INF, 34.1360448680344, +INF, 0)
+        1       o1
+
+
+---- f2  Objective Function 2
+
+f2
+                (.LO, .L, .UP, .M = 43.1998226119876, 10000000000, +INF, 0)
+        1       o2
+
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/22/21 14:13:15 Page 12
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE InFeasible_NLP Using NLP From line 46
+
+
+LOOPS                              counter   count1
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           6     SINGLE EQUATIONS            6
+BLOCKS OF VARIABLES           5     SINGLE VARIABLES            5
+NON ZERO ELEMENTS            15     NON LINEAR N-Z              5
+CODE LENGTH                  16     CONSTANT POOL              16
+
+
+GENERATION TIME      =        0.000 SECONDS      4 MB  36.2.0 r433180e WEX-WEI
+               L O O P S            counter count1
+
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/22/21 14:13:15 Page 13
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE InFeasible_NLP Using NLP From line 46
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   InFeasible_NLP      OBJECTIVE  f1
+     TYPE    NLP                 DIRECTION  MINIMIZE
+     SOLVER  CONOPT              FROM LINE  46
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      2 Locally Optimal
+**** OBJECTIVE VALUE               34.1360
+
+ RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ ITERATION COUNT, LIMIT         4    2147483647
+ EVALUATION ERRORS              0             0
+--- *** This solver runs with a demo license. No commercial use.
+ 
+ 
+    C O N O P T 3   version 3.17K
+    Copyright (C)   ARKI Consulting and Development A/S
+                    Bagsvaerdvej 246 A
+                    DK-2880 Bagsvaerd, Denmark
+ 
+ 
+ ** Warning ** 1 variables were initialized close to the internal
+               infinity = 1.000000E+10. Were moved to 9.900000E+09.
+ 
+ 
+    The model has 5 variables and 6 constraints
+    with 15 Jacobian elements, 5 of which are nonlinear.
+    The Hessian of the Lagrangian has 3 elements on the diagonal,
+    1 elements below the diagonal, and 3 nonlinear variables.
+ 
+ ** Warning **  The value of LFITER is out of range.
+                LFITER is decreased from 2147483647 to 1000000000.
+ 
+                   Pre-triangular equations:   0
+                   Post-triangular equations:  1
+                   Definitional equations:     2
+ 
+ 
+ ** Optimal solution. Reduced gradient less than tolerance.
+ 
+ 
+ CONOPT time Total                            0.001 seconds
+   of which: Function evaluations             0.000 =  0.0%
+             1st Derivative evaluations       0.000 =  0.0%
+ 
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU c1                  .       4.9500000E+9        +INF            EPS         
+---- EQU c2                 5.0000         5.0000         5.0000        10.8583      
+---- EQU c3                  .             6.2875        +INF             .          
+---- EQU c4                -INF           -2.3301          .             EPS         
+---- EQU o1                  .              .              .             1.0000      
+---- EQU o2                10.0000        10.0000        10.0000         EPS         
+
+  c1  Constraint 1
+  c2  Constraint 2
+  c3  Constraint 3
+  c4  Constraint 4
+  o1  Objective Function 1 definition
+  o2  Objective Function 2 definition
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR x1                -INF            5.4292        +INF             .          
+---- VAR x2                -INF           -0.4292       100.0000          .          
+---- VAR x3                -INF      -4.950000E+9        +INF             .          
+---- VAR f1                -INF           34.1360        +INF             .          
+---- VAR f2                43.1998   9.9000000E+9        +INF             .          
+
+  x1  Decision Variable 1
+  x2  Decision Variable 2
+  x3  Decision Variable 3
+  f1  Objective Function 1
+  f2  Objective Function 2
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0     ERRORS
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/22/21 14:13:15 Page 14
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE InFeasible_NLP Using NLP From line 46
+
+
+---- c1  =G=  Constraint 1
+
+c1..  x1 + x2 - x3 =G= 0 ; (LHS = 4950000000)
+     
+
+---- c2  =E=  Constraint 2
+
+c2..  x1 + x2 =E= 5 ; (LHS = 5)
+     
+
+---- c3  =G=  Constraint 3
+
+c3..  x1 - 2*x2 =G= 0 ; (LHS = 6.2875211895129)
+     
+
+---- c4  =L=  Constraint 4
+
+c4..  - (0.429173729837632)*x1 + (5.42917372983763)*x2 =L= 0 ; (LHS = -2.3300587395709)
+     
+
+---- o1  =E=  Objective Function 1 definition
+
+o1..  - (10.8583474596753)*x1 - (10.858347459649)*x2 + (0)*x3 + f1 =E= 0 ; (LHS = 0)
+     
+
+---- o2  =E=  Objective Function 2 definition
+
+o2..  2*x3 + f2 =E= 10 ; (LHS = 100000009.999998, INFES = 99999999.9999981 ****)
+     
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/22/21 14:13:15 Page 15
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE InFeasible_NLP Using NLP From line 46
+
+
+---- x1  Decision Variable 1
+
+x1
+                (.LO, .L, .UP, .M = -INF, 5.42917372983763, +INF, 0)
+        1       c1
+        1       c2
+        1       c3
+      (-0.4292) c4
+     (-10.8583) o1
+
+
+---- x2  Decision Variable 2
+
+x2
+                (.LO, .L, .UP, .M = -INF, -0.429173729837632, 100, 0)
+        1       c1
+        1       c2
+       -2       c3
+       (5.4292) c4
+     (-10.8583) o1
+
+
+---- x3  Decision Variable 3
+
+x3
+                (.LO, .L, .UP, .M = -INF, -4949999995, +INF, 0)
+       -1       c1
+       (0)      o1
+        2       o2
+
+
+---- f1  Objective Function 1
+
+f1
+                (.LO, .L, .UP, .M = -INF, 34.1360448678896, +INF, 0)
+        1       o1
+
+
+---- f2  Objective Function 2
+
+f2
+                (.LO, .L, .UP, .M = 10000000000, 10000000000, +INF, 0)
+        1       o2
+  9.9000000E+9  (OLD LEVEL ****)
+
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/22/21 14:13:15 Page 16
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE InFeasible_NLP Using NLP From line 46
+
+
+LOOPS                              counter   count2
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           6     SINGLE EQUATIONS            6
+BLOCKS OF VARIABLES           5     SINGLE VARIABLES            5  1 projected
+NON ZERO ELEMENTS            15     NON LINEAR N-Z              5
+CODE LENGTH                  16     CONSTANT POOL              16
+
+
+GENERATION TIME      =        0.000 SECONDS      4 MB  36.2.0 r433180e WEX-WEI
+               L O O P S            counter count2
+
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/22/21 14:13:15 Page 17
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE InFeasible_NLP Using NLP From line 46
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   InFeasible_NLP      OBJECTIVE  f1
+     TYPE    NLP                 DIRECTION  MINIMIZE
+     SOLVER  CONOPT              FROM LINE  46
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      3 Unbounded
+**** OBJECTIVE VALUE               34.1360
+
+ RESOURCE USAGE, LIMIT          0.015 10000000000.000
+ ITERATION COUNT, LIMIT         4    2147483647
+ EVALUATION ERRORS              0             0
+--- *** This solver runs with a demo license. No commercial use.
+ 
+ 
+    C O N O P T 3   version 3.17K
+    Copyright (C)   ARKI Consulting and Development A/S
+                    Bagsvaerdvej 246 A
+                    DK-2880 Bagsvaerd, Denmark
+ 
+ 
+ ** Warning ** 1 variables were initialized close to the internal
+               infinity = 1.000000E+10. Were moved to 9.900000E+09.
+ 
+ 
+    The model has 5 variables and 6 constraints
+    with 15 Jacobian elements, 5 of which are nonlinear.
+    The Hessian of the Lagrangian has 3 elements on the diagonal,
+    1 elements below the diagonal, and 3 nonlinear variables.
+ 
+ ** Warning **  The value of LFITER is out of range.
+                LFITER is decreased from 2147483647 to 1000000000.
+ 
+ ** Warning **  Some variables are considered fixed because their
+                bounds are very close, i.e. within a relative
+                distance of Rtbndt = 1.0E-07
+ 
+                The critical limit may be decreased with the option:
+ 
+                Rtbndt=x.xx
+ 
+ 
+                   Pre-triangular equations:   1
+                   Post-triangular equations:  1
+                   Definitional equations:     1
+ 
+ 
+ ** Unbounded solution. A variable has reached 'Infinity'.
+    Largest legal value (Rtmaxv) is 1.00E+10
+ 
+    The allowable range can be changed with option:
+ 
+    Rtmaxv=x.xxe+xx
+ 
+ 
+ CONOPT time Total                            0.001 seconds
+   of which: Function evaluations             0.000 =  0.0%
+             1st Derivative evaluations       0.000 =  0.0%
+ 
+
+**** ERRORS/WARNINGS IN VARIABLE f1
+     1 error(s): The variable is unbounded                                                                   DK-2
+     1 error(s): The variable has reached 'infinity'                                                         DK-2
+     1 error(s): Variable considered fixed at Lower Bound and Initial value is moved.
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU c1                  .       5.0000000E+9        +INF             .          
+---- EQU c2                 5.0000         5.0000         5.0000        10.8583      
+---- EQU c3                  .             6.2875        +INF             .          
+---- EQU c4                -INF           -2.3301          .             EPS         
+---- EQU o1                  .              .              .             1.0000      
+---- EQU o2                10.0000        10.0000        10.0000         EPS         
+
+  c1  Constraint 1
+  c2  Constraint 2
+  c3  Constraint 3
+  c4  Constraint 4
+  o1  Objective Function 1 definition
+  o2  Objective Function 2 definition
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR x1                -INF            5.4292        +INF             .          
+---- VAR x2                -INF           -0.4292       100.0000          .          
+---- VAR x3                -INF      -5.000000E+9        +INF             .          
+---- VAR f1                -INF           34.1360        +INF             .          
+---- VAR f2           1.000000E+10   1.000000E+10        +INF            EPS     NOPT
+
+  x1  Decision Variable 1
+  x2  Decision Variable 2
+  x3  Decision Variable 3
+  f1  Objective Function 1
+  f2  Objective Function 2
+
+
+**** REPORT SUMMARY :        1     NONOPT ( NOPT)
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             3     ERRORS ( ****)
+GAMS 36.2.0  r433180e Released Sep  3, 2021 WEX-WEI x86 64bit/MS Windows - 10/22/21 14:13:15 Page 18
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----     52 PARAMETER report  
+
+                F1          F2           E
+
+count1      34.136 9.900000E+9      43.200
+count2      34.136 1.00000E+10 1.00000E+10
+
+
+
+EXECUTION TIME       =        0.234 SECONDS      4 MB  36.2.0 r433180e WEX-WEI
+
+
+USER: GAMS Demo license for Nikitha Reddy Metta      G210913|0002CO-GEN
+      Indian Institute of Technology Guwahati, India           DL048129
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\USER\OneDrive\Documents\GAMS\Studio\workspace\CL643 Assignment 4\Multi Objective\InFeasible_NLP.gms
+Output     C:\Users\USER\OneDrive\Documents\GAMS\Studio\workspace\CL643 Assignment 4\Multi Objective\InFeasible_NLP.lst
